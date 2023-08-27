@@ -13,6 +13,7 @@ app = FastAPI()
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = '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'
 
+
 # origins = [os.getenv("ORIGIN")]
 #
 # app.add_middleware(
@@ -30,7 +31,7 @@ class Question(BaseModel):
 
 @app.get("/")
 def get_answer():
-    return {'Data' : 'Hello User'}
+    return {'Data': 'Hello User'}
 
 
 @app.post("/ask")

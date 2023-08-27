@@ -9,11 +9,17 @@ from model import answer_question
 
 app = FastAPI()
 
-# load_dotenv()
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = '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'
+load_dotenv()
 
 
+def get_openai_api_key():
+    if os.getenv('LOCAL_DEV') == 'True':
+        return os.getenv("OPENAI_API_KEY")
+    else:
+        return os.environ.get("OPENAI_API_KEY")
+
+
+openai.api_key = get_openai_api_key()
 # origins = [os.getenv("ORIGIN")]
 #
 # app.add_middleware(
@@ -36,5 +42,6 @@ def get_answer():
 
 @app.post("/ask")
 def get_answer(question_data: Question):
-    question = question_data.question
-    return answer_question(question)
+    return {'answer': 'Here is your answer'}
+    # question = question_data.question
+    # return answer_question(question)

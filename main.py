@@ -42,6 +42,6 @@ def get_answer():
 
 @app.post("/ask")
 def get_answer(question_data: Question):
-    return {'answer': 'Here is your answer'}
+    return {'answer': f'Here is your answer - {openai.api_key}'}
     # question = question_data.question
     # return answer_question(question)

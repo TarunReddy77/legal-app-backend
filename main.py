@@ -15,9 +15,9 @@ load_dotenv()
 
 
 # Serve the Vue.js frontend files
-app.mount("/", StaticFiles(directory="../frontend/dist", html=True))
+# app.mount("/", StaticFiles(directory="../frontend/dist", html=True))
 
-# origins = [os.getenv("ORIGIN")]
+origins = [os.getenv("ORIGIN")]
 
 # Add CORS middleware to allow frontend API requests
 app.add_middleware(
